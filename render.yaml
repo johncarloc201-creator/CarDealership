@@ -1,0 +1,12 @@
+version: "1"
+services:
+  - type: web
+    name: car-dealership-app
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    autoDeploy: true
+    envVars:
+      - key: MONGODB_URI
+        sync: false

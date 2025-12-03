@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+    
+    background-size: cover;
+    height: 100vh;
+}
+.navbar{
+    height: 80px;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+}
+.Logos{
+    width: 140px;
+    height: 60%;
+    padding: 20px 100px;
+}
+.navbar ul{
+    float: right;
+    margin-right: 20px;
+}
+.navbar ul li{
+    list-style: none;
+    margin: 9px;
+    display: inline-block;
+    line-height: 80px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px 12px;
+    font-family: 'Roboto', sans-serif;
+    transition: .4 ease-in;
+}
+.navbar ul li button{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px 12px;
+    font-family: 'Roboto', sans-serif;
+    transition: .4 ease-in;
+    background-color: red;
+}
+.navbar ul li a:hover{
+    background: red;
+    border-radius: 2px;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background for contrast */
+    display: flex;
+    justify-content: center; /* Center the box horizontally */
+    align-items: center; /* Center the box vertically */
+    height: 100vh; /* Full height of the viewport */
+}
+
+.text-box {
+    background-color: #333; /* Dark background for the box */
+    color: white; /* White text color */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    text-align: center; /* Center the text */
+    width: 300px; /* Fixed width for the box */
+}

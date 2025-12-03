@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealership - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 450px;
+            animation: fadeIn 0.6s ease-in;
+            position: relative;
+            z-index: 1;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo-text {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        .logo-subtext {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+        .input-group {
+            margin-bottom: 24px;
+        }
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        input {
+            width: 100%;
+            padding: 16px 18px;
+            font-size: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            background: #ffffff;
+            color: #1a1a2e;
+        }
+        input:focus {
+            border-color: #0f3460;
+            box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+        }
+        input:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        button {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            opacity: 1;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 15px rgba(15, 52, 96, 0.3);
+        }
+        button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(15, 52, 96, 0.4);
+        }
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .toggle-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f3460;
+            background: transparent;
+            border: 2px solid #0f3460;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+        .toggle-btn:hover {
+            background: #0f3460;
+            color: white;
+        }
+        .message {
+            margin-top: 24px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+            display: block;
+        }
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+            display: block;
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #0f3460;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">
+            <div class="logo-text">🚗 CAR DEALERSHIP</div>
+            <div class="logo-subtext">Premium Vehicles</div>
+        </div>
+        
+        <h2 id="title">Login</h2>
+        <p class="subtitle" id="subtitle">Sign in to access your account</p>
+        
+        <form id="loginForm">
+            <div class="input-group" id="firstnameGroup" style="display: none;">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" placeholder="Enter your first name" />
+            </div>
+
+            <div class="input-group" id="lastnameGroup" style="display: none;">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" placeholder="Enter your last name" />
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required />
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required />
+            </div>
+
+            <button type="submit" id="submitBtn">🚀 Sign In</button>
+        </form>
+
+        <button type="button" class="toggle-btn" id="toggleBtn">
+            Don't have an account? Register here
+        </button>
+
+        <div id="message" class="message"></div>
+
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const title = document.getElementById('title');
+        const subtitle = document.getElementById('subtitle');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageDiv = document.getElementById('message');
+        const firstnameGroup = document.getElementById('firstnameGroup');
+        const lastnameGroup = document.getElementById('lastnameGroup');
+        const firstnameInput = document.getElementById('firstname');
+        const lastnameInput = document.getElementById('lastname');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+    
+        let isLogin = true;
+    
+        toggleBtn.addEventListener('click', () => {
+            isLogin = !isLogin;
+    
+            if (isLogin) {
+                title.textContent = 'Login';
+                subtitle.textContent = 'Sign in to access your account';
+                submitBtn.textContent = '🚀 Sign In';
+                toggleBtn.textContent = "Don't have an account? Register here";
+                firstnameGroup.style.display = 'none';
+                lastnameGroup.style.display = 'none';
+                firstnameInput.removeAttribute('required');
+                lastnameInput.removeAttribute('required');
+            } else {
+                title.textContent = 'Register';
+                subtitle.textContent = 'Create an account to get started';
+                submitBtn.textContent = '🚀 Register';
+                toggleBtn.textContent = 'Already have an account? Login here';
+                firstnameGroup.style.display = 'block';
+                lastnameGroup.style.display = 'block';
+                firstnameInput.setAttribute('required', 'required');
+                lastnameInput.setAttribute('required', 'required');
+            }
+    
+            messageDiv.className = 'message';
+            messageDiv.textContent = '';
+            form.reset();
+        });
+    
+        const API_BASE_URL = (window.location.origin && window.location.origin !== 'null')
+            ? window.location.origin
+            : 'http://localhost:5000'; // fall back when opened from file system
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+    
+            submitBtn.disabled = true;
+            submitBtn.textContent = isLogin ? '⏳ Signing In...' : '⏳ Registering...';
+            messageDiv.className = 'message';
+            messageDiv.textContent = '';
+    
+            const data = {
+                email: emailInput.value,
+                password: passwordInput.value
+            };
+    
+            if (!isLogin) {
+                data.firstname = firstnameInput.value;
+                data.lastname = lastnameInput.value;
+            }
+    
+            try {
+                if (!data.email || !data.password) {
+                    messageDiv.className = 'message error';
+                    messageDiv.textContent = '❌ Email and password are required';
+                    return;
+                }
+    
+                if (!isLogin && (!data.firstname || !data.lastname)) {
+                    messageDiv.className = 'message error';
+                    messageDiv.textContent = '❌ First name and last name are required';
+                    return;
+                }
+    
+                const url = isLogin 
+                    ? `${API_BASE_URL}/api/login`
+                    : `${API_BASE_URL}/api/register`;
+    
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+    
+                let result = await response.json();
+    
+                if (response.ok) {
+                    messageDiv.className = 'message success';
+                    messageDiv.textContent = `✅ ${result.message}${result.user ? ' Welcome ' + result.user.firstname + '!' : ''}`;
+                    form.reset();
+    
+                    // --------------------
+                    // ✅ Redirect after Login
+                    // --------------------
+                    if (isLogin) {
+                        setTimeout(() => {
+                            window.location.href = "home.html"; 
+                        }, 1500);
+                    } else {
+                        setTimeout(() => {
+                            isLogin = true;
+                            toggleBtn.click();
+                        }, 2000);
+                    }
+                } else {
+                    messageDiv.className = 'message error';
+                    messageDiv.textContent = `❌ ${result.message || 'An error occurred'}`;
+                }
+            } catch (error) {
+                messageDiv.className = 'message error';
+                const detail = error?.message || 'Network error';
+                messageDiv.textContent = `❌ Error: ${detail}. Tried connecting to ${API_BASE_URL}. Make sure the backend is running on that address.`;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = isLogin ? '🚀 Sign In' : '🚀 Register';
+            }
+        });
+    </script>
+    
+</body>
+</html>
+

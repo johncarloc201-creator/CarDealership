@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Car</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+        .card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 0.6s ease-in;
+            color: #1a1a2e;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .summary-box {
+            background: #222;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* ============================
+           RECEIPT POPUP
+        ============================ */
+        #receiptPopup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .receipt-box {
+            background: white;
+            width: 90%;
+            max-width: 420px;
+            padding: 25px;
+            border-radius: 15px;
+            animation: fadeIn 0.4s ease-in-out;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+        .receipt-box h3 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .receipt-details p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+        .close-btn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            background: #0f3460;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Car Purchase Form</h2>
+
+    <div class="summary-box">
+        <p><strong>Car Model:</strong> <span id="carName"></span></p>
+        <p><strong>Price:</strong> ₱<span id="price"></span></p>
+    </div>
+
+    <form id="purchaseForm">
+        <label>Your Full Name</label>
+        <input type="text" id="fullname" required>
+
+        <label>Address</label>
+        <input type="text" id="address" required>
+
+        <label>Contact Number</label>
+        <input type="text" id="contact" required>
+
+        <label>Payment Method</label>
+        <select id="payment" required>
+            <option value="">Choose a payment method</option>
+            <option value="Cash">Cash</option>
+            <option value="Installment">Installment</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+        </select>
+
+        <button type="submit" id="submitBtn">Confirm Purchase</button>
+         <button type="submit" id="submitBtn"><a href="home.html">Back to home</a></button>
+    </form>
+
+</div>
+
+<!-- ============================
+     RECEIPT POPUP HTML
+============================ -->
+<div id="receiptPopup">
+    <div class="receipt-box">
+        <h3>Purchase Receipt</h3>
+
+        <div class="receipt-details">
+            <p><strong>Name:</strong> <span id="r_name"></span></p>
+            <p><strong>Car Model:</strong> <span id="r_car"></span></p>
+            <p><strong>Price:</strong> ₱<span id="r_price"></span></p>
+            <p><strong>Address:</strong> <span id="r_address"></span></p>
+            <p><strong>Contact:</strong> <span id="r_contact"></span></p>
+            <p><strong>Payment Method:</strong> <span id="r_payment"></span></p>
+            <p><strong>Date:</strong> <span id="r_date"></span></p>
+        </div>
+
+        <button class="close-btn" onclick="closeReceipt()">Close Receipt</button>
+    </div>
+</div>
+
+<script>
+    // Load car info from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('product') || 'N/A';
+    const price = urlParams.get('price') || '0';
+    document.getElementById("carName").innerText = product;
+    document.getElementById("price").innerText = Number(price).toLocaleString();
+
+    // Handle form
+    const form = document.getElementById('purchaseForm');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get values
+        const fullname = document.getElementById('fullname').value;
+        const address = document.getElementById('address').value;
+        const contact = document.getElementById('contact').value;
+        const payment = document.getElementById('payment').value;
+
+        // Fill receipt fields
+        document.getElementById("r_name").innerText = fullname;
+        document.getElementById("r_car").innerText = product;
+        document.getElementById("r_price").innerText = Number(price).toLocaleString();
+        document.getElementById("r_address").innerText = address;
+        document.getElementById("r_contact").innerText = contact;
+        document.getElementById("r_payment").innerText = payment;
+
+        document.getElementById("r_date").innerText =
+            new Date().toLocaleString();
+
+        // Show receipt popup
+        document.getElementById("receiptPopup").style.display = "flex";
+
+        form.reset();
+    });
+
+    function closeReceipt() {
+        document.getElementById("receiptPopup").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

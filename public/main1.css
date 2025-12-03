@@ -1,0 +1,127 @@
+m*{
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+    background: url(main.avif) no-repeat; 
+    background-size: cover;
+    height: 100vh;
+}
+.navbar{
+    height: 80px;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+}
+.Logos{
+    width: 140px;
+    height: 60%;
+    padding: 20px 100px;
+}
+.navbar ul{
+    float: right;
+    margin-right: 20px;
+}
+.navbar ul li{
+    list-style: none;
+    margin: 9px;
+    display: inline-block;
+    line-height: 80px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 5px 12px;
+    font-family: 'Roboto', sans-serif;
+    transition: .4 ease-in;
+}
+.navbar ul li button{
+    text-decoration: none;
+    color: white;
+    font-size: 120px;
+    padding: 5px 12px;
+    font-family: 'Roboto', sans-serif;
+    transition: .4 ease-in;
+    background-color: red;
+}
+.navbar ul li a:hover{
+    background: red;
+    border-radius: 2px;
+}
+.wrapper .center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    user-select: none;
+}
+.center h1{
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    width: 900px;
+    text-align: center;
+}
+.form-container {
+    background-color: grey;
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 300px;
+    margin-left: 300px;
+    margin-top: 150px;
+    
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: red;
+}
+
+p {
+    margin-top: 20px;
+    text-align: center;
+}
+.role-selection {
+    margin-bottom: 20px;
+}
+
+.role-selection label {
+    margin-right: 40px;
+    font-size: 20px;
+}
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}

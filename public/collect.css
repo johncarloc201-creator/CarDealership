@@ -1,0 +1,165 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+    background: url(CARS.mp4) no-repeat; 
+    background-size: cover;
+    height: 100vh;
+}
+.navbar{
+    height: 80px;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+}
+.Logos{
+    width: 140px;
+    height: 60%;
+    padding: 20px 100px;
+}
+.navbar ul{
+    float: right;
+    margin-right: 20px;
+}
+.navbar ul li{
+    list-style: none;
+    margin: 9px;
+    display: inline-block;
+    line-height: 80px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px 12px;
+    font-family: 'Roboto', sans-serif;
+    transition: .4 ease-in;
+}
+.navbar ul li button{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px 12px;
+    font-family: 'Roboto', sans-serif;
+    transition: .4 ease-in;
+    background-color: red;
+}
+.navbar ul li a:hover{
+    background: red;
+    border-radius: 2px;
+}
+#bodybackground {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; 
+}
+.items{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 30px 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+    background-color: white;
+}
+.h4{
+    text-align: left;
+    font-size: 25px;
+    margin: 15px;   
+    color: red;
+    margin-left: 120px;
+}
+.item img{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.item img:hover{
+    transform: scale(1.04);
+}
+
+
+
+
+
+.itemss{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 30px 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+    background-color: white;
+}
+.h5{
+    text-align: left;
+    font-size: 25px;
+    margin: 15px;   
+    color: red;
+    margin-left: 130px;
+}
+.item img{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.itemsimg:hover{
+    transform: scale(1.04);
+}
+.itemss{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 30px 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+    background-color: white;
+}
+.h5{
+    text-align: left;
+    font-size: 25px;
+    margin: 15px;   
+    color: red;
+    margin-left: 130px;
+}
+.item img{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.item img:hover{
+    transform: scale(1.04);
+}
+footer {
+    background-color: #f8f9f8;
+    padding: 30px 0;
+    background: rgba(0,0,0,0.8);
+}
+.footer-section p {
+    margin: 0;
+    font-size: 20px;
+    margin-left: 100px;
+    color: white;
+    margin-top: 30px;
+}
+.logo a {
+    color: white;
+    font-size: 25px;
+    margin-left: 1150px;    
+    margin-bottom: 30px;
+}
+.basta {
+    font-size: 90px;
+    color: white;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 450px;
+    margin-left: 50px;
+}

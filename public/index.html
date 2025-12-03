@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealership - API</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .link {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(15, 52, 96, 0.4);
+        }
+        .api-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .api-info h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        .api-endpoint {
+            font-family: 'Courier New', monospace;
+            background: #1a1a2e;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 Car Dealership API</h1>
+        <p class="subtitle">MongoDB Database: <strong>CarDealership</strong></p>
+        
+        <div class="links">
+            <a href="/login.html" class="link">🔐 Login / Register Page</a>
+            <a href="/users" class="link">View All Users in Database</a>
+            <a href="/api/users" class="link">View Users (JSON API)</a>
+        </div>
+        
+        <div class="api-info">
+            <h3>Available API Endpoints:</h3>
+            <div class="api-endpoint">GET / - API Status</div>
+            <div class="api-endpoint">GET /users - View Users (HTML)</div>
+            <div class="api-endpoint">GET /api/users - Get Users (JSON)</div>
+            <div class="api-endpoint">POST /api/register - Register User</div>
+            <div class="api-endpoint">POST /api/login - Login User</div>
+        </div>
+    </div>
+</body>
+</html>
+
